@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffb6d5">
+<title>For Clara Sayang 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+:root {
+    --pink: #ff8fbd;
+    --pink-light: #ffe1ee;
+    --purple: #c9a7ff;
+    --yellow: #ffe69a;
+    --white: #fffafd;
+    --text: #75465f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Baloo 2', sans-serif;
+    background: linear-gradient(135deg,#ffdae9,#e8d9ff,#d9f0ff);
+    color: var(--text);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.particle {
+    position: absolute;
+    top: -50px;
+    animation: falling linear forwards;
+    opacity: .9;
+    user-select: none;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-5vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(110vh) rotate(500deg);
+        opacity: 0;
+    }
+}
+
+.page {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 620px;
+    padding: 25px 18px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.page.active {
+    display: flex;
+    animation: pageIn .8s ease both;
+}
+
+@keyframes pageIn {
+    from { opacity: 0; transform: translateY(22px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+h1 {
+    font-size: clamp(38px,8vw,68px);
+    line-height: 1.2;
+    color: #ff65a4;
+    text-shadow: 2px 3px white, 0 5px 20px #ff94c7;
+}
+
+h2 {
+    font-size: clamp(25px,5vw,38px);
+    color: #ed6caa;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.script {
+    font-family: 'Pacifico', cursive;
+}
+
+.small-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 800;
+    color: #a17bc4;
+    margin-bottom: 15px;
+}
+
+.decor {
+    font-size: 32px;
+    margin: 12px;
+    animation: wiggle 2s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+    0%,100% { transform: rotate(-8deg) translateY(0); }
+    50% { transform: rotate(8deg) translateY(-8px); }
+}
+
+.main-btn {
+    background: linear-gradient(135deg,#ff80b5,#ffafd0);
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+    padding: 13px 28px;
+    border-radius: 40px;
+    margin-top: 24px;
+    box-shadow: 0 7px 0 #e86c9e, 0 12px 25px #ed8bb866;
+    transition: .25s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 0 #e86c9e, 0 15px 25px #ed8bb866;
+}
+
+.main-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #e86c9e;
+}
+
+.secondary-btn {
+    background: white;
+    color: #e86ca3;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.glass {
+    background: #ffffffb8;
+    backdrop-filter: blur(12px);
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    padding: 28px 24px;
+    max-width: 530px;
+    width: 100%;
+    box-shadow: 0 15px 45px #ad80b633;
+}
+
+.cloud {
+    position: absolute;
+    font-size: 45px;
+    opacity: .55;
+    animation: cloudMove 7s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes cloudMove {
+    from { transform: translateX(-15px); }
+    to { transform: translateX(20px); }
+}
+
+/* ENVELOPE */
+
+.envelope-area {
+    width: 250px;
+    height: 185px;
+    position: relative;
+    margin: 35px auto 15px;
+    cursor: pointer;
+    perspective: 800px;
+}
+
+.envelope {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    background: #ff8fbd;
+    border-radius: 8px;
+    box-shadow: 0 12px 25px #b66d9660;
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffb6d5;
+    clip-path: polygon(0 0,50% 60%,100% 0);
+    z-index: 4;
+}
+
+.envelope:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ff78ac;
+    clip-path: polygon(0 100%,50% 45%,100% 100%);
+    z-index: 5;
+}
+
+.flap {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    background: #ffc7dd;
+    clip-path: polygon(0 0,100% 0,50% 65%);
+    transform-origin: top;
+    transition: transform .9s ease;
+    z-index: 6;
+}
+
+.letter-inside {
+    position: absolute;
+    background: white;
+    width: 82%;
+    height: 130px;
+    left: 9%;
+    bottom: 10px;
+    border-radius: 8px;
+    padding-top: 20px;
+    font-size: 37px;
+    transition: transform 1s ease;
+    z-index: 2;
+}
+
+.seal {
+    position: absolute;
+    top: 63px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 37px;
+    z-index: 7;
+    transition: opacity .4s;
+}
+
+.envelope-area.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-area.open .letter-inside {
+    transform: translateY(-105px);
+}
+
+.envelope-area.open .seal {
+    opacity: 0;
+}
+
+.tap-hint {
+    font-size: 14px;
+    color: #a17bc4;
+    animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .45; }
+}
+
+/* SEVEN MONTHS */
+
+.big-seven {
+    font-size: clamp(130px,30vw,210px);
+    font-weight: 800;
+    color: #ff80b5;
+    line-height: 1;
+    text-shadow: 6px 6px white, 0 0 35px #ff9bc9;
+    animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    10%,30% { transform: scale(1.08); }
+    20%,40% { transform: scale(1); }
+}
+
+.badge {
+    display: inline-block;
+    background: #fff0a9;
+    padding: 7px 20px;
+    border-radius: 30px;
+    color: #a8784c;
+    font-weight: 800;
+    margin: 8px;
+}
+
+/* LETTER */
+
+.letter-text {
+    white-space: pre-line;
+    text-align: left;
+    min-height: 260px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #80536d;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin: 20px auto;
+    max-width: 490px;
+}
+
+.photo-card {
+    background: white;
+    padding: 8px 8px 18px;
+    border-radius: 12px;
+    transform: rotate(-3deg);
+    box-shadow: 0 8px 20px #9e77a633;
+}
+
+.photo-card:nth-child(2) { transform: rotate(3deg) translateY(-9px); }
+.photo-card:nth-child(3) { transform: rotate(-2deg); }
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+    object-fit: cover;
+    border-radius: 7px;
+    background: #ffe0ed;
+}
+
+.photo-card span {
+    display: block;
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.photo-note {
+    font-size: 12px;
+    color: #a17bc4;
+}
+
+/* MINI GAME */
+
+.heart-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.heart-choice {
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    background: white;
+    font-size: 37px;
+    box-shadow: 0 5px 15px #d48ab844;
+    transition: .3s;
+}
+
+.heart-choice:hover {
+    transform: translateY(-8px) rotate(10deg);
+}
+
+#game-message {
+    min-height: 55px;
+    font-weight: 700;
+    color: #e86ca3;
+}
+
+/* FINAL */
+
+.final-heart {
+    font-size: 105px;
+    animation: heartbeat 1.2s infinite;
+    filter: drop-shadow(0 5px 15px #ff78b5);
+}
+
+.final-card {
+    max-width: 570px;
+}
+
+.final-footer {
+    font-family: 'Pacifico',cursive;
+    color: #e86ca3;
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+.progress {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff99;
+    border: 1px solid #f18ab7;
+}
+
+.dot.active {
+    width: 22px;
+    border-radius: 10px;
+    background: #f278ad;
+}
+
+@media(max-width:480px) {
+    .page { min-height: 600px; padding: 20px 15px 40px; }
+    p { font-size: 15px; }
+    .glass { padding: 23px 17px; }
+    .gallery { gap: 7px; }
+    .photo-card { padding: 5px 5px 12px; }
+    .photo-card span { font-size: 10px; }
+    .letter-text { font-size: 14px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<!-- PAGE 1: OPENING -->
+<section class="page active" id="page1">
+
+    <div class="cloud" style="top:10%;left:8%">☁️</div>
+    <div class="cloud" style="top:20%;right:8%">☁️</div>
+
+    <div class="decor">🌷 ⭐ 💗 ⭐ 🌷</div>
+
+    <p class="small-label">A SPECIAL LITTLE SURPRISE</p>
+
+    <h1 class="script">Hello, Clara Sayang!</h1>
+
+    <p style="margin-top:20px">
+        I have a little surprise for you,<br>
+        my favorite girl in the whole world.
+    </p>
+
+    <div style="font-size:80px;margin:20px">🧸💝</div>
+
+    <p>Are you ready, Sayang?</p>
+
+    <button class="main-btn" onclick="goTo(2)">
+        YES, I'M READY! 💗
+    </button>
+
+    <p class="photo-note" style="margin-top:28px">
+        Made with a lot of love, just for Clara.
+    </p>
+</section>
+
+
+<!-- PAGE 2: ENVELOPE -->
+<section class="page" id="page2">
+
+    <p class="small-label">A LETTER FROM SOMEONE WHO LOVES YOU</p>
+
+    <h2 class="script">For You, Sayang 💌</h2>
+
+    <p>There's something inside this envelope...</p>
+
+    <div class="envelope-area" id="envelope" onclick="openEnvelope()">
+        <div class="letter-inside">💌</div>
+        <div class="envelope"></div>
+        <div class="flap"></div>
+        <div class="seal">💗</div>
+    </div>
+
+    <p class="tap-hint" id="envelopeHint">♡ Tap the envelope to open it ♡</p>
+
+    <button class="main-btn" id="envelopeNext"
+        style="display:none" onclick="goTo(3)">
+        READ MY LETTER 💌
+    </button>
+</section>
+
+
+<!-- PAGE 3: SEVEN MONTHS -->
+<section class="page" id="page3">
+
+    <div class="decor">✨ 🌸 ✨</div>
+
+    <p class="small-label">OUR LITTLE LOVE STORY</p>
+
+    <div class="big-seven">7</div>
+
+    <h2 class="script">Beautiful Months Together</h2>
+
+    <div>
+        <span class="badge">7 MONTHS 💗</span>
+        <span class="badge">AND COUNTING 🌷</span>
+    </div>
+
+    <div class="glass" style="margin-top:20px">
+        <p>
+            Seven months of us.<br>
+            Seven months of laughter.<br>
+            Seven months of little memories.<br>
+            And countless reasons to love you.
+        </p>
+    </div>
+
+    <p style="margin-top:20px">
+        And you know what, Clara?
+    </p>
+
+    <button class="main-btn" onclick="goTo(4)">
+        WHAT IS IT? 🥺
+    </button>
+</section>
+
+
+<!-- PAGE 4: LOVE LETTER -->
+<section class="page" id="page4">
+
+    <div class="glass">
+        <div style="font-size:40px">💌🌷</div>
+
+        <h2 class="script">A Letter For My Clara</h2>
+
+        <p class="photo-note" style="margin-bottom:15px">
+            Please read this with your sweetest smile.
+        </p>
+
+        <div class="letter-text" id="letterText"></div>
+    </div>
+
+    <button class="main-btn" onclick="goTo(5)">
+        OUR MEMORIES 📸
+    </button>
+</section>
+
+
+<!-- PAGE 5: MEMORIES -->
+<section class="page" id="page5">
+
+    <p class="small-label">LITTLE MOMENTS, BIG MEMORIES</p>
+
+    <h2 class="script">Our Little World 📸</h2>
+
+    <p>
+        Every picture has a story.<br>
+        And every story is special because it's with you.
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="foto1.jpg" alt="Our first memory"
+            onerror="this.src='https://placehold.co/300x350/ffd6e8/9b5278?text=Our+Memory+1'">
+            <span>Our memory ♡</span>
+        </div>
+
+        <div class="photo-card">
+            <img src="foto2.jpg" alt="Our second memory"
+            onerror="this.src='https://placehold.co/300x350/e7d8ff/9b5278?text=Our+Memory+2'">
+            <span>My favorite ♡</span>
+        </div>
+
+        <div class="photo-card">
+            <img src="foto3.jpg" alt="Our third memory"
+            onerror="this.src='https://placehold.co/300x350/d8efff/9b5278?text=Our+Memory+3'">
+            <span>Forever us ♡</span>
+        </div>
+
+    </div>
+
+    <p class="photo-note">
+        Replace these three pictures with your own photos.
+    </p>
+
+    <button class="main-btn" onclick="goTo(6)">
+        LET'S PLAY A LITTLE GAME! 🧸
+    </button>
+</section>
+
+
+<!-- PAGE 6: MINI GAME -->
+<section class="page" id="page6">
+
+    <div class="decor">🧸 💗 🌸</div>
+
+    <p class="small-label">A LITTLE LOVE GAME</p>
+
+    <h2 class="script">Pick Your Heart, Clara!</h2>
+
+    <p>
+        Choose one heart.<br>
+        There's a little message waiting for you.
+    </p>
+
+    <div class="heart-options">
+        <button class="heart-choice" onclick="chooseHeart(0)">💗</button>
+        <button class="heart-choice" onclick="chooseHeart(1)">💖</button>
+        <button class="heart-choice" onclick="chooseHeart(2)">💕</button>
+    </div>
+
+    <div class="glass">
+        <p id="game-message">
+            Which heart will you choose, Sayang? 🥺
+        </p>
+    </div>
+
+    <button class="main-btn" onclick="goTo(7)">
+        ONE LAST SURPRISE! 🎁
+    </button>
+</section>
+
+
+<!-- PAGE 7: FINAL -->
+<section class="page" id="page7">
+
+    <div class="decor">🌸 ⭐ 🌷 ⭐ 🌸</div>
+
+    <p class="small-label">THIS IS FOR YOU, MY LOVE</p>
+
+    <div class="final-heart">💗</div>
+
+    <h1 class="script">Happy 7 Months!</h1>
+
+    <h2 class="script">Clara Sayang 🌷</h2>
+
+    <div class="glass final-card">
+
+        <p>
+            Thank you for being my favorite person,
+            my happiness, and one of the most beautiful
+            parts of my life.
+            <br><br>
+
+            I know our journey isn't always perfect.
+            There may be difficult days, little arguments,
+            and moments when we don't understand each other.
+            <br><br>
+
+            But I hope we never stop choosing each other.
+            I want to keep learning about you,
+            making you smile, supporting your dreams,
+            and creating more beautiful memories together.
+            <br><br>
+
+            Seven months is just the beginning.
+            I hope there will be so many more chapters
+            in our little love story.
+            <br><br>
+
+            <b>Thank you for being you, Clara.</b>
+            <br>
+            I love you so much, Sayang. ❤️
+        </p>
+
+    </div>
+
+    <div class="final-footer">
+        Always yours, with love. 💗
+    </div>
+
+    <button class="main-btn" onclick="finalSurprise()">
+        CLICK FOR INFINITE LOVE 💞
+    </button>
+
+    <button class="secondary-btn" onclick="goTo(1)">
+        ↻ Watch Again
+    </button>
+
+</section>
+
+
+<div class="progress" id="progress"></div>
+
+
+<script>
+
+// ======================================
+// 1. NAVIGASI HALAMAN
+// ======================================
+
+let currentPage = 1;
+const totalPages = 7;
+
+function updateProgress() {
+    const progress = document.getElementById("progress");
+    progress.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        const dot = document.createElement("div");
+        dot.className = "dot" + (i === currentPage ? " active" : "");
+        progress.appendChild(dot);
+    }
+}
+
+function goTo(number) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    currentPage = number;
+
+    document.getElementById("page" + number).classList.add("active");
+
+    updateProgress();
+
+    if (number === 4) {
+        startLetter();
+    }
+
+    if (number === 7) {
+        rainFlowers(30);
+    }
+
+    window.scrollTo(0, 0);
+}
+
+updateProgress();
+
+
+// ======================================
+// 2. ANIMASI AMPLOP
+// ======================================
+
+let envelopeOpened = false;
+
+function openEnvelope() {
+    if (envelopeOpened) return;
+
+    envelopeOpened = true;
+
+    document.getElementById("envelope").classList.add("open");
+
+    document.getElementById("envelopeHint").textContent =
+        "A little love is on its way to you! 💗";
+
+    setTimeout(() => {
+        document.getElementById("envelopeNext").style.display = "inline-block";
+    }, 1200);
+
+    rainFlowers(18);
+}
+
+
+// ======================================
+// 3. SURAT CINTA
+// ======================================
+
+const loveLetter = `Dear Clara Sayang, ❤️
+
+Happy 7 months, my love!
+
+I just want to say how happy and grateful
+I am to have you in my life.
+
+Thank you for every little thing you do.
+Thank you for your smiles, your stories,
+your laughter, and even your silly moments.
+
+You make ordinary days feel special
+just by being part of them.
+
+I know I still have so much to learn.
+I may not always know the perfect words,
+but I hope you always feel how much
+you mean to me.
+
+I want to be someone you can talk to,
+someone who listens, someone who supports you,
+and someone who makes you feel loved.
+
+I don't know exactly what the future holds,
+but I know I want to keep making memories
+with you.
+
+Here's to our 7 months,
+and to all the beautiful months ahead.
+
+I love you, Clara Sayang. 💗
+
+Always yours.`;
+
+let letterStarted = false;
+
+function startLetter() {
+    if (letterStarted) return;
+
+    letterStarted = true;
+
+    const element = document.getElementById("letterText");
+    let index = 0;
+
+    function type() {
+        if (currentPage !== 4) return;
+
+        if (index < loveLetter.length) {
+            element.textContent += loveLetter.charAt(index);
+            index++;
+            setTimeout(type, 35);
+        }
+    }
+
+    type();
+}
+
+
+// ======================================
+// 4. HUJAN HATI DAN BUNGA
+// ======================================
+
+const particles = document.getElementById("particles");
+
+const symbols = [
+    "💗", "💖", "💕", "❤️", "🌸",
+    "🌷", "🌹", "✨", "⭐", "💞"
+];
+
+function createParticle() {
+    const item = document.createElement("div");
+
+    item.className = "particle";
+    item.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (15 + Math.random() * 23) + "px";
+    item.style.animationDuration = (5 + Math.random() * 6) + "s";
+    item.style.animationDelay = "0s";
+
+    particles.appendChild(item);
+
+    setTimeout(() => item.remove(), 12000);
+}
+
+setInterval(createParticle, 450);
+
+function rainFlowers(amount) {
+    for (let i = 0; i < amount; i++) {
+        setTimeout(createParticle, i * 75);
+    }
+}
+
+
+// ======================================
+// 5. MINI GAME PESAN CINTA
+// ======================================
+
+const messages = [
+    "You are my favorite person in this whole world! 💗",
+    "If I could choose again, I would still choose you. 💖",
+    "You deserve all the love and happiness in the world. 🌷"
+];
+
+let selectedHearts = [];
+
+function chooseHeart(number) {
+    if (selectedHearts.includes(number)) return;
+
+    selectedHearts.push(number);
+
+    document.getElementById("game-message").textContent =
+        messages[number];
+
+    rainFlowers(12);
+
+    const buttons = document.querySelectorAll(".heart-choice");
+    buttons[number].style.transform = "scale(1.3)";
+    buttons[number].style.opacity = ".5";
+    buttons[number].disabled = true;
+}
+
+
+// ======================================
+// 6. KEJUTAN TERAKHIR
+// ======================================
+
+function finalSurprise() {
+    rainFlowers(100);
+
+    document.querySelector(".final-heart").textContent = "💖";
+
+    document.querySelector(".final-footer").textContent =
+        "I LOVE YOU, CLARA SAYANG! 💗";
+
+    document.querySelector("h1.script").textContent =
+        "You're My Everything!";
+
+    setTimeout(() => {
+        alert("Happy 7 Months, Clara Sayang! I LOVE YOU SO MUCH! ❤️");
+    }, 500);
+}
+
+</script>
+
+</body>
+</html>
