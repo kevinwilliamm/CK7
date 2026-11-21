@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Months With You Clara❤️Kevin</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1c102e, #54244f, #a34b79);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    animation: floatUp linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+section {
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: none;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.active {
+    display: flex;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 65px);
+    margin: 15px 0;
+    color: #ffd5e9;
+    text-shadow: 0 0 25px #ff70b7;
+}
+
+h2 {
+    color: #ffc5df;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #ff75b5, #ffb5d5);
+    color: #461634;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 0 25px #ff80bd80;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #ff80bd;
+}
+
+.subtitle {
+    color: #ffd6e9;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.glow {
+    font-size: 100px;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.card {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: 0 10px 50px #00000030;
+}
+
+.number {
+    font-size: 150px;
+    font-weight: bold;
+    color: #ffc4e1;
+    text-shadow: 0 0 35px #ff5aa9;
+    animation: beat 2s infinite;
+}
+
+.letter {
+    text-align: left;
+    white-space: pre-line;
+    min-height: 170px;
+    color: #fff0f7;
+    font-size: 16px;
+}
+
+.sparkle {
+    font-size: 35px;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; transform: scale(.8); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+.gallery {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.photo {
+    width: 125px;
+    height: 150px;
+    border: 2px solid #ffc5df;
+    border-radius: 15px;
+    object-fit: cover;
+    background: #ffffff20;
+}
+
+.footer {
+    color: #ffd2e6;
+    margin-top: 25px;
+    font-size: 13px;
+}
+
+#finalHeart {
+    font-size: 90px;
+    animation: beat 1s infinite;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<!-- HALAMAN 1 -->
+<section id="page1" class="active">
+    <div class="sparkle">✦ ✧ ✦</div>
+    <p class="subtitle">A LITTLE SURPRISE FOR YOU</p>
+
+    <h1>Hey, My Love ❤️</h1>
+
+    <p>
+        I made something special<br>
+        just for the most special person in my life.
+    </p>
+
+    <div class="glow">💗</div>
+
+    <button onclick="nextPage(2)">
+        Open Your Gift 💌
+    </button>
+
+    <div class="footer">Made with love, only for you.</div>
+</section>
+
+<!-- HALAMAN 2 -->
+<section id="page2">
+    <div class="sparkle">🌷 ✨ 🌷</div>
+    <h2>Can you believe it?</h2>
+
+    <p>
+        We've been writing our little love story<br>
+        for seven beautiful months.
+    </p>
+
+    <div class="number">7</div>
+
+    <h2>MONTHS TOGETHER</h2>
+
+    <p>
+        Seven months of laughter, stories,<br>
+        memories, and endless reasons to smile.
+    </p>
+
+    <button onclick="nextPage(3)">
+        Continue, My Love ❤️
+    </button>
+</section>
+
+<!-- HALAMAN 3 -->
+<section id="page3">
+    <div class="card">
+        <div class="sparkle">💌</div>
+        <h2>A Letter For You</h2>
+
+        <div class="letter" id="letter"></div>
+
+        <button onclick="nextPage(4)">
+            One More Surprise ✨
+        </button>
+    </div>
+</section>
+
+<!-- HALAMAN 4 -->
+<section id="page4">
+    <div class="sparkle">📸 💕 📸</div>
+    <h2>Our Little Memories</h2>
+
+    <p>
+        Every moment with you<br>
+        is a memory I want to keep forever.
+    </p>
+
+    <div class="gallery">
+        <img class="photo" src="foto1.jpg" alt="Our memory 1">
+        <img class="photo" src="foto2.jpg" alt="Our memory 2">
+        <img class="photo" src="foto3.jpg" alt="Our memory 3">
+    </div>
+
+    <p style="font-size:13px;color:#ffd6e9">
+        Three little pieces of our beautiful story ❤️
+    </p>
+
+    <button onclick="nextPage(5)">
+        The Last One 💗
+    </button>
+</section>
+
+<!-- HALAMAN 5 -->
+<section id="page5">
+    <div class="sparkle">✨ 🌙 ✨</div>
+
+    <div id="finalHeart">❤️</div>
+
+    <h1>Happy 7 Months!</h1>
+
+    <div class="card">
+        <h2>To My Favorite Person</h2>
+
+        <p>
+            Thank you for being part of my life.
+            Thank you for every smile, every laugh,
+            every little moment, and every beautiful
+            memory we've made together.
+            <br><br>
+            I know we're not perfect, and our journey
+            won't always be easy. But I hope we keep
+            choosing each other, understanding each
+            other, and growing together.
+            <br><br>
+            I don't just want seven months with you.
+            I want many more months, years, and
+            beautiful stories together.
+            <br><br>
+            <b>Once again, happy 7 months, my love.</b>
+            <br><br>
+            I love you, always. ❤️
+        </p>
+    </div>
+
+    <h2 style="margin-top:25px">
+        You are my favorite chapter. 💗
+    </h2>
+
+    <button onclick="celebrate()">
+        Click For More Love ❤️
+    </button>
+
+    <p class="footer">Forever starts with little moments.</p>
+</section>
+
+<script>
+
+// SURAT CINTA - UBAH SESUAI KATA-KATAMU
+const message = `Dear My Love,
+
+Happy 7 months, sayangku. ❤️
+
+I just want you to know how grateful I am
+to have you in my life.
+
+Thank you for staying, for understanding me,
+and for making my ordinary days feel special.
+
+Maybe I can't always be beside you,
+but I hope you always feel how much
+I care about you.
+
+I may not be perfect,
+but I promise to keep learning
+how to love you better.
+
+You are someone I never want
+to take for granted.
+
+I love you, more than words can say.
+
+With all my love,
+Your favorite person. ❤️`;
+
+let typingStarted = false;
+
+function nextPage(page) {
+    document.querySelectorAll("section").forEach(s => {
+        s.classList.remove("active");
+    });
+
+    document.getElementById("page" + page).classList.add("active");
+
+    if (page === 3 && !typingStarted) {
+        typingStarted = true;
+        typeLetter();
+    }
+
+    window.scrollTo(0, 0);
+}
+
+function typeLetter() {
+    let i = 0;
+    const element = document.getElementById("letter");
+
+    function type() {
+        if (i < message.length) {
+            element.textContent += message.charAt(i);
+            i++;
+            setTimeout(type, 45);
+        }
+    }
+
+    type();
+}
+
+// ANIMASI HATI MELAYANG
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["❤️", "💕", "💗", "💖", "🌸"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 6) + "s";
+
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(() => heart.remove(), 11000);
+}
+
+setInterval(createHeart, 450);
+
+// KEJUTAN TERAKHIR
+function celebrate() {
+    for (let i = 0; i < 60; i++) {
+        setTimeout(createHeart, i * 60);
+    }
+
+    document.getElementById("finalHeart").innerHTML = "💖";
+    alert("I LOVE YOU SO MUCH! ❤️");
+}
+
+</script>
+
+</body>
+</html>
